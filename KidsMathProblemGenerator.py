@@ -66,13 +66,7 @@ def printToFile(filename):
 if __name__ == "__main__":
     generateMathProblems()
     generatePrintableLines()
-    # print('\t\t'.join(numerators))
-    # print('\t\t'.join(denominators))
-    # print(operators)
-    # print(answers)
     printToFile(FILENAME)
-
     printableLines.clear()
     generatePrintableLines(printAnswers=True)
-
     printToFile(FILENAME_ANSWERS)
