@@ -10,7 +10,7 @@ problems = []
 FILENAME = 'MathProblems.txt'
 FILENAME_ANSWERS = 'MathProblems_Answers.txt'
 PROBLEMS_IN_A_ROW = 5
-NUMBER_OF_PROBLEMS = 35  # Use 35 for 1 page of well formatted problems on  A4 size paper
+NUMBER_OF_PROBLEMS = 35  # Use 35 for 1 page of well formatted problems on A4 size paper
 SPACER = ' ' * 10
 numerators = []
 denominators = []
@@ -48,8 +48,9 @@ def getAnswer(numerator, denominator, operation):
     predicate = operations.get(operation)
     if operation == '÷':
         quotient: int = floor(predicate(numerator, denominator))
-        if numerator % denominator != 0:
-            return "{quo}R{rem}".format(quo=quotient, rem=numerator % denominator)
+        remainder = numerator % denominator
+        if remainder != 0:
+            return "{quo}R{rem}".format(quo=quotient, rem=remainder)
         return quotient
     return predicate(numerator, denominator)
 
