@@ -1,10 +1,11 @@
 import operator
 import random
 from datetime import date
-from math import floor
+
+from CustomOperator import divisionWithRemainder
 
 operationsDisplay = ['+', '-', 'x', '÷']
-operations = {'+': operator.add, '-': operator.sub, 'x': operator.mul, '÷': operator.truediv}
+operations = {'+': operator.add, '-': operator.sub, 'x': operator.mul, '÷': divisionWithRemainder}
 delimiter = '-----'
 problems = []
 FILENAME = 'MathProblems.txt'
@@ -46,12 +47,6 @@ def getMathProblem(numerator, denominator, operation):
 
 def getAnswer(numerator, denominator, operation):
     predicate = operations.get(operation)
-    if operation == '÷':
-        quotient: int = floor(predicate(numerator, denominator))
-        remainder = numerator % denominator
-        if remainder != 0:
-            return "{quo}R{rem}".format(quo=quotient, rem=remainder)
-        return quotient
     return predicate(numerator, denominator)
 
 
